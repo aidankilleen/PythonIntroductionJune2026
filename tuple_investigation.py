@@ -165,6 +165,10 @@ l = [1, 2, 3]
 print (a, b, c)
 
 
+# sets - you create a set using {} - different to a dictionary
+
+
+
 l = [(1, "Alice"), 
      (2, "Bob"), 
      (3, "Carol")
