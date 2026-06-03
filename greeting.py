@@ -5,6 +5,10 @@
 DEFAULT_GREETING="Welcome"
 
 def greet(name="", greeting=DEFAULT_GREETING, count=1):
+
+    if name == "":
+        raise ValueError("Name can't be blank")
+    
     for i in range(count):
         print(f"{greeting} {name}")
     
@@ -25,4 +29,7 @@ if __name__ == "__main__":
 
     greet(count=3, greeting="Failte", name="Eve")
 
-    greet()
+    try:
+        greet()
+    except Exception as ex:
+        print (ex)
