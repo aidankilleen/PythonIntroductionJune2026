@@ -69,6 +69,18 @@ shuffle(cards)
 
 print (cards)
 
+# if I needed 4 hands with 13 cards each - how would you do this?
+
+hand1 = cards[::4]
+hand2 = cards[1::4]
+hand3 = cards[2::4]
+hand4 = cards[3::4]
+
+
+print (hand1)
+print (hand2)
+print (hand3)
+print (hand4)
 
 
 
