@@ -33,9 +33,19 @@ class UserDao():
         return user
         
     # TODO - make id a list/tuple or a * parameter        
-    def delete_user(self, id):
-        sql = f"DELETE FROM users WHERE id={id}"
-        self.conn.execute(sql)
+    #def delete_user(self, id):
+    #    sql = f"DELETE FROM users WHERE id={id}"
+    #    self.conn.execute(sql)
+    #    self.conn.commit()
+
+    def delete_user(self, *ids):
+        if not ids:
+            return
+
+        placeholders = ",".join("?" for _ in ids)
+        sql = f"DELETE FROM users WHERE id IN ({placeholders})"
+
+        self.conn.execute(sql, ids)
         self.conn.commit()
         
     def update_user(self, user):
@@ -59,8 +69,9 @@ if __name__ == "__main__":
     # added_user should have an id that was assigned by the db
     #print (added_user)
 
-    
-    #dao.delete_user(33)
+    dao.delete_user(1)
+    dao.delete_user(1, 2, 3)
+    dao.delete_user(39, 40, 41, 13)
     #dao.delete_user(37)
     #dao.delete_user(38)
     # check 34 is missing below
@@ -69,10 +80,10 @@ if __name__ == "__main__":
     for user in users:
         print (user)
 
-    users[-1].name = "CHANGEDx"
-    users[-1].active = not users[-1].active
+    #users[-1].name = "CHANGEDx"
+    #users[-1].active = not users[-1].active
 
-    dao.update_user(users[-1])
+    #dao.update_user(users[-1])
 
     users = dao.get_users()
     for user in users:
