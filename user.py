@@ -20,7 +20,7 @@ class User():
 
     # __str__ is the string representation for the users
     def __str__(self):
-        return f"{self.id}:{self.name} {self.email}{"Active" if self.active else "Inactive"}"
+        return f"{self.id}:{self.name} {self.email} {"Active" if self.active else "Inactive"}"
     
     def __repr__(self):
         #return "debug rep.."
