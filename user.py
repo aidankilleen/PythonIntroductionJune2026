@@ -23,6 +23,7 @@ class User():
         return f"{self.id}:{self.name} {self.email}{"Active" if self.active else "Inactive"}"
     
     def __repr__(self):
+        #return "debug rep.."
         return self.__str__()
 
 if __name__ == "__main__":
