@@ -16,7 +16,16 @@ pt["Total"] = pt.sum(axis=1)
 print(pt)
 print ()
 totals_row = pt.sum(axis=0).to_frame().T
-
+totals_row.index = ["Total"]
 print (totals_row)
+
+print ("*" * 50)
+
+pt_with_totals = pd.concat([pt, totals_row])
+
+print (pt_with_totals)
+
+
+
 
 
